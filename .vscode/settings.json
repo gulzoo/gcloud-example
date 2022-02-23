@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/v1@serviceaccount+v1@service": "file:///home/andrej/Projects/gcloud-example/kubernetes/ingress/controller/traefik/traefik-deployment.yml"
+    }
+}

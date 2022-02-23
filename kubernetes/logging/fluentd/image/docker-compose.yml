@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  webapp:
+    container_name: fluentd
+    image: europe-west6-docker.pkg.dev/andrej-project/dock-repo/fluentd:1.0
+    build:
+      context: .

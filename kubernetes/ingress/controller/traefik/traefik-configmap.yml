@@ -1,0 +1,26 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: traefik-config
+  namespace: webapp-prod
+data:
+  config.toml: |-
+    [metrics]
+      [metrics.prometheus]
+        entryPoint = "traefik"
+        buckets = [0.1,0.3,1.2,5.0]
+    [entryPoints]
+      [entryPoints.http]
+      address = ":80"
+      [entryPoints.https]
+      address = ":443"
+      [entryPoints.https.tls]
+    [acme]
+    email = "andrej.turk91@gmail.com"
+    storage = "acme.json"
+    entryPoint = "https"
+    onHostRule = true
+    [[acme.domains]]
+      main = "webapp.gulzoo.eu"
+    [acme.httpChallenge]
+    entryPoint = "http"
