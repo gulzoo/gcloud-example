@@ -7,5 +7,6 @@ steps:
   args:
   - run
   - --filename=kubernetes/deployments/
+  - --namespace=${_NAMESPACE}
   - --location=${_COMPUTE_ZONE}
   - --cluster=${_CONTAINER_CLUSTER}
