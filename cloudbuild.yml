@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'europe-west6-docker.pkg.dev/andrej-project/dock-repo/webapp:1.0', './apps/webapp/']
+  images: ['europe-west6-docker.pkg.dev/andrej-project/dock-repo/webapp:1.0']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'europe-west6-docker.pkg.dev/andrej-project/dock-repo/webapp:1.0']
+- name: 'gcr.io/cloud-builders/gke-deploy'
+  args:
+  - run
+  - --filename=kubernetes/deployments/
+  - --location=${_COMPUTE_ZONE}
+  - --cluster=${_CONTAINER_CLUSTER}
