@@ -26,8 +26,6 @@ spec:
           containerPort: 80
         - name: https
           containerPort: 443
-        - name: admin
-          containerPort: 8080
         args:
         - --api
         - --kubernetes
