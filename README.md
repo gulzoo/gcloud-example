@@ -3,7 +3,7 @@
 In this project we create a GKE cluster using Terraform. On the cluster we than deploy an Angular web application that is exposed on the internet.
 
 
-##Create GKE using Terraform
+## Create GKE using Terraform
 
 ```
 gcloud init
@@ -17,7 +17,7 @@ terraform apply
 gcloud container clusters get-credentias $(terraform output -raw kubernetes_cluster_name) --region $(terraform output -raw region)
 
 ```
-##Building and Deploying Webapp
+## Building and Deploying Webapp
 
 ```
 #Enable arifactregistry API on the project
@@ -37,7 +37,7 @@ kubectl apply -f kubernetes/namespaces/namepaces.yml
 #Deploy webapp
 kubectl -n webapp-prod apply -f kubernetes/deployments/webapp.yml
 ```
-##Exposing app using Traefik ingress controller
+## Exposing app using Traefik ingress controller
 ```
 #Create a service
 kubectl -n webapp-prod apply -f kubernetes/services/services.yml
